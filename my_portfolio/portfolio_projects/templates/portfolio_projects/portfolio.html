@@ -14,17 +14,28 @@ END SEO blocks
 <!-- ================================
 Start CSS blocks
 ================================= -->
-{% block extend_header %}{% endblock %}
+{% block extend_header %}
+<style>
+    /* Ensure project images are displayed in a row */
+    .pColMain {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; /* Adjust as needed */
+    }
+
+    .pCol {
+        margin-bottom: 20px; /* Adjust spacing between project images */
+    }
+
+    .pImg {
+        width: 100%; /* Ensure images fill the available space */
+        max-width: 400px; /* Adjust as needed */
+        height: auto;
+    }
+</style>
+{% endblock %}
 <!-- ================================
 END CSS blocks
-================================= -->
-
-<!-- ================================
-Start script blocks
-================================= -->
-{% block extend_footer %}{% endblock %}
-<!-- ================================
-END script blocks
 ================================= -->
 
 <!-- ================================
@@ -35,11 +46,9 @@ Start Content
   <div class="innerPageBannerCol">
     <div class="container">
       <div class="row g-4 g-md-3  align-items-center">
-        <div class="col-md-6">
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3">See my recent projects below</h1>
           </div>
-        </div>
       </div>
     </div>
   </div>
@@ -49,17 +58,14 @@ Start Content
   <div class="lightBg">
     <div class="container">
       <div class="portfolioContentMain">
-        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+        <div class="pColMain">
           {% for obj in object_list %}
-          <div class="col-md-6 pColMain">
-            <div class="pCol">
-              <a href="{% url 'portfolio_projects:portfolio' slug=obj.slug %}" >
+          <div class="pCol">
+            <a href="{% url 'portfolio_projects:portfolio' slug=obj.slug %}" >
               <img src="{{obj.image.url}}" alt="..." class="pImg">
-              </a>
-            </div>
+            </a>
           </div>
           {% endfor %}
-          
         </div>
       </div>
     </div>
@@ -68,4 +74,4 @@ Start Content
 <!-- ================================
 End Content
 ================================= -->
-{% endblock%}    
+{% endblock%}

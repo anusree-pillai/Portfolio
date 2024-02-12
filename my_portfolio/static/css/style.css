@@ -270,8 +270,8 @@ a, .btn {
   position: relative;
 }
 .bannerUserImg img {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 106%;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 50%;
@@ -280,8 +280,8 @@ a, .btn {
 .bannerUserImg::before {
   content: "";
   position: absolute;
-  left: -5px;
-  top: 13px;
+  left: -1px;
+  top: 10px;
   width: 100%;
   height: 100%;
   background-color: #EDF7FA;
@@ -487,7 +487,7 @@ body.navToggleActive {
 
 /* portfolio page */
 .innerPageBannerCol {
-	padding: 180px 0 150px;
+	padding: 150px 0 80px;
 }
 .portfolioContentMain {
   position: relative;
@@ -764,6 +764,13 @@ body.navToggleActive {
   	font-size: 14px;
   }
 }
+
+.lightBg {
+  background-image: url('{% static "images/concrete-wall-scratched-material-background-texture-concept.jpg" %}');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 input[type=text], input[type=email], select, textarea {
   width: 100%;

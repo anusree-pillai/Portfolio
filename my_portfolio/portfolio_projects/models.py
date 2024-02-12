@@ -97,6 +97,8 @@ class Portfolio(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True, upload_to="portfolio")
+    git_link = models.URLField(blank=True, null=True)
+    #wlink=models.URLField(blank =True, null=True)
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
