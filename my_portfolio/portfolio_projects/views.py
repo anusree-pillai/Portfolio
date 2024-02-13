@@ -48,12 +48,12 @@ class PortfolioDetailView(generic.DetailView):
     model = Portfolio
     template_name = "portfolio_projects/portfolio-detail.html"
 
-    def get_context_data(self, **kwargs):
+    '''def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         portfolio = self.get_object()
-        technologies = portfolio.technology.all()  # Fetching related technologies
+        technologies = Portfolio.technology.all()  # Fetching related technologies
         context['technologies'] = technologies
-        return context
+        return context'''
 
 
 #class EducationView(generic.DetailView):

@@ -41,10 +41,18 @@ Start Content
   <div class="innerPageBannerCol">
     <div class="container">
       <!--<div class="row g-4 g-md-3  align-items-center">-->
-        <div class="col-md-6">
+        <div class="col-md-6"
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3" >{{object.name}}</h1>
             
+            
+          </div>
+          <div>
+            <h4 class="xlTitle pb-md-3" >Technologies Used</h4>
+            {% for str in object.tecnology_list %s}
+            <li>
+                {{str}}
+            </li>
           </div>
           <li><a href="{{ object.git_link }}"><img src="{% static 'images/icons8-github-26.png' %}" alt="..."></a></li>
        
