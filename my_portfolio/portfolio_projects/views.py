@@ -21,7 +21,8 @@ class  IndexView(generic.TemplateView):
         context["portfolio"] = portfolios
         context["education"] = education
         context["experience"] = experience
-        context["technologies"] = technologies
+        #context["technologies"] = technologies
+       # print(technologies)
         return context
     
 class ContactView(generic.FormView):
@@ -42,10 +43,18 @@ class PortfolioView(generic.ListView):
     def get_queryset(self) :
         return super().get_queryset().filter(is_active=True)
     
-    
+        
 class PortfolioDetailView(generic.DetailView):
     model = Portfolio
     template_name = "portfolio_projects/portfolio-detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        portfolio = self.get_object()
+        technologies = portfolio.technology.all()  # Fetching related technologies
+        context['technologies'] = technologies
+        return context
+
 
 #class EducationView(generic.DetailView):
 class WorkExperineceView(generic.ListView):

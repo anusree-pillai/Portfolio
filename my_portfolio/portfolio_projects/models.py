@@ -104,7 +104,7 @@ class Portfolio(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     git_link = models.URLField(blank=True, null=True)
     #wlink=models.URLField(blank =True, null=True)
-   # technology = models.CharField(blank=True, max_length=200,null=True)
+    technology = models.ManyToManyField(Technology, blank=True)
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -118,6 +118,7 @@ class Portfolio(models.Model):
 
     def get_absolute_url(self):
         return f"/portfolio/{self.slug}"
+    
 
 
 '''class Blog(models.Model):

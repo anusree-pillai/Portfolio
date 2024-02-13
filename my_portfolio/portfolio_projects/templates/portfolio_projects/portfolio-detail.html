@@ -18,7 +18,7 @@ Start CSS blocks
 <style>
   /* Custom CSS to reduce space between project name and body */
   .sectionSpaceSm .container {
-    margin-top: -90px; /* Adjust this value as needed */
+    margin-top: -95px; /* Adjust this value as needed */
   }
 </style>{% endblock %}
 <!-- ================================
@@ -40,25 +40,18 @@ Start Content
 <section>
   <div class="innerPageBannerCol">
     <div class="container">
-      <div class="row g-4 g-md-3  align-items-center">
+      <!--<div class="row g-4 g-md-3  align-items-center">-->
         <div class="col-md-6">
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3" >{{object.name}}</h1>
-            <h2>Technologies Used</h2>
-            <ul>
-              {% for t in object.technology %}
-              <li>
-                {{t}}
-              </li>
-              {% endfor %}
-            </ul>
+            
           </div>
           <li><a href="{{ object.git_link }}"><img src="{% static 'images/icons8-github-26.png' %}" alt="..."></a></li>
        
         </div>
         
 
-      </div>
+      <!--</div>-->
     </div>
   </div>
 </section>
