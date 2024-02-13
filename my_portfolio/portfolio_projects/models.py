@@ -3,7 +3,12 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 
+class Technology(models.Model):
+    name = models.CharField(max_length=200,blank=True,null=True)
+    image = models.ImageField(blank=True,null=True)
 
+    def __str__(self):
+        return self.name
 class Skill(models.Model):
     class Meta:
         verbose_name_plural = 'Skills'
@@ -99,6 +104,7 @@ class Portfolio(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to="portfolio")
     git_link = models.URLField(blank=True, null=True)
     #wlink=models.URLField(blank =True, null=True)
+   # technology = models.CharField(blank=True, max_length=200,null=True)
     slug = models.SlugField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 

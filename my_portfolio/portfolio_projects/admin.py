@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import Media,Portfolio,Skill,Education,Workexperience,UserProfile,ContactProfile,Certificate
+from .models import Media,Portfolio,Skill,Education,Workexperience,UserProfile,ContactProfile,Certificate,Technology
 
 # Register your models here.
 '''admin.site.register(Portfolio)
@@ -19,7 +19,10 @@ admin.site.register(Media)'''
 class UserProfileAdmin(admin.ModelAdmin):
 	list_display = ('id', 'user')
      
-
+@admin.register(Technology)
+class technologyAdmin(admin.ModelAdmin):
+     list_display = ('id', 'name', 'image')
+     
 @admin.register(ContactProfile)
 class ContactAdmin(admin.ModelAdmin):
 	list_display = ('id', 'timestamp', 'name',)

@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.contrib import messages
-from .models import UserProfile,Portfolio,Education,Workexperience,Certificate
+from .models import UserProfile,Portfolio,Education,Workexperience,Certificate,Technology
 from .forms import ContactForm
 from django.views import generic
 
@@ -15,11 +15,13 @@ class  IndexView(generic.TemplateView):
         portfolios = Portfolio.objects.filter(is_active=True)
         education = Education.objects.filter(is_active=True)
         experience = Workexperience.objects.filter(is_active=True)
+        technologies = Technology.objects.all()
 
         context["certificates"] = certificates
         context["portfolio"] = portfolios
         context["education"] = education
         context["experience"] = experience
+        context["technologies"] = technologies
         return context
     
 class ContactView(generic.FormView):

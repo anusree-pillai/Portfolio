@@ -44,6 +44,14 @@ Start Content
         <div class="col-md-6">
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3" >{{object.name}}</h1>
+            <h2>Technologies Used</h2>
+            <ul>
+              {% for t in object.technology|split:',' %}
+              <li>
+                {{t}}
+              </li>
+              {% endfor %}
+            </ul>
           </div>
           <li><a href="{{ object.git_link }}"><img src="{% static 'images/icons8-github-26.png' %}" alt="..."></a></li>
        
