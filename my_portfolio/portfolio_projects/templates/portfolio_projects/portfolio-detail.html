@@ -46,7 +46,7 @@ Start Content
             <h1 class="xlTitle pb-md-3" >{{object.name}}</h1>
             <h2>Technologies Used</h2>
             <ul>
-              {% for t in object.technology|split:',' %}
+              {% for t in object.technology %}
               <li>
                 {{t}}
               </li>
