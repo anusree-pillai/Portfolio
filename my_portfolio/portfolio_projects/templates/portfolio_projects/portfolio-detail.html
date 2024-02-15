@@ -16,11 +16,28 @@ Start CSS blocks
 ================================= -->
 {% block extend_header %}
 <style>
-  /* Custom CSS to reduce space between project name and body */
   .sectionSpaceSm .container {
     margin-top: -95px; /* Adjust this value as needed */
+    max-width: 50%; /* Set the maximum width to 100% */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
   }
-</style>{% endblock %}
+  .technologies {
+    white-space: nowrap; /* Prevent line wrapping */
+  }
+  .technology {
+    display: inline-block;
+    margin-right: 10px; /* Adjust as needed */
+  }
+  .technology img {
+    height: 30px; /* Adjust image height as needed */
+    vertical-align: middle; /* Align image vertically */
+  }
+  .project-body-container {
+    max-width: 500px; /* Set the maximum width of the body container */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+</style>
+{% endblock %}
 <!-- ================================
 END CSS blocks
 ================================= -->
@@ -41,20 +58,25 @@ Start Content
   <div class="innerPageBannerCol">
     <div class="container">
       <!--<div class="row g-4 g-md-3  align-items-center">-->
-        <div class="col-md-6"
+        <div class="col-md-6">
           <div class="bannerContent">
             <h1 class="xlTitle pb-md-3" >{{object.name}}</h1>
             
             
           </div>
-          <div>
-            <h4 class="xlTitle pb-md-3" >Technologies Used</h4>
-            {% for str in object.tecnology_list %s}
-            <li>
-                {{str}}
-            </li>
-          </div>
-          <li><a href="{{ object.git_link }}"><img src="{% static 'images/icons8-github-26.png' %}" alt="..."></a></li>
+          
+            <h4>Technologies Used</h4>
+            <p class="technologies">
+              {% for technology in technologies %}
+            <span class="technology">
+                
+                {{ technology.name }}
+                <img src="{{ technology.image.url }}" alt=" ">
+            </span>
+        {% endfor %}
+          </p>
+          
+          <li>GitHub Link        <a href="{{ object.git_link }}"><img src="{% static 'images/icons8-github-26.png' %}" alt="..."></a></li>
        
         </div>
         
@@ -65,9 +87,8 @@ Start Content
 </section>
 <section>
   <div class="sectionSpaceSm">
-    <div class="container" style="font-family: cursive;">
+    <div class="container project-body-container" style="font-family: cursive;">
       {{ object.body|safe }}
-      
     </div>
   </div>
 </section>

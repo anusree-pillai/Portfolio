@@ -24,6 +24,9 @@ class  IndexView(generic.TemplateView):
         #context["technologies"] = technologies
        # print(technologies)
         return context
+
+#class AboutmeView(generic.TemplateView):
+ #   template_name = 'portfolio_projects/aboutme.html'    
     
 class ContactView(generic.FormView):
     template_name = "portfolio_projects/contact.html"
@@ -48,12 +51,12 @@ class PortfolioDetailView(generic.DetailView):
     model = Portfolio
     template_name = "portfolio_projects/portfolio-detail.html"
 
-    '''def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         portfolio = self.get_object()
-        technologies = Portfolio.technology.all()  # Fetching related technologies
+        technologies = portfolio.technology.all()  # Fetching related technologies
         context['technologies'] = technologies
-        return context'''
+        return context
 
 
 #class EducationView(generic.DetailView):
