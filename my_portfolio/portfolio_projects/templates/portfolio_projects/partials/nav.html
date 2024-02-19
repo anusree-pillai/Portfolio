@@ -1,0 +1,42 @@
+{% load static %}
+<!-- ================================
+Start Navigation Bar
+================================= -->
+<header>
+    <style>
+    .logo-icon {
+        width: 100px; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+</style>
+    <div class="headerCol">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+        <div class="col-auto">
+            <div class="logoCol"><a href="{% url 'portfolio_projects:home' %}"><img src="{% static 'images/8665273.jpg' %}" alt="..." class="logo-icon"></a></div>        </div>
+        <div class="col">
+            <div class="d-md-none">
+            <button class="navToggle">
+                <span class="navToggle__text">Toggle Menu</span>
+            </button>
+            </div>
+            <div class="navCollapseCol">
+            <div class="navCol">
+                <ul>
+                <li><a href="{%url 'portfolio_projects:home'%}">Home</a></li>
+                <li><a href="{%url 'portfolio_projects:portfolios' %}">Portfolio</a></li>
+                
+
+                <li><a href="{% url 'portfolio_projects:experience' %}">Work Experience</a></li>
+                <li><a href="{%url 'portfolio_projects:contact'%}">Contact</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</header>
+<!-- ================================
+End Navigation Bar
+================================= -->
