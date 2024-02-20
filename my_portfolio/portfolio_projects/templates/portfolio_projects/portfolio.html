@@ -17,20 +17,28 @@ Start CSS blocks
 {% block extend_header %}
 <style>
     /* Ensure project images are displayed in a row */
-    .pColMain {
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center content vertically */
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around; /* Adjust as needed */
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        
     }
 
-    .pCol {
-        margin-bottom: 20px; /* Adjust spacing between project images */
-    }
+    img {
 
-    .pImg {
-        width: 100%; /* Ensure images fill the available space */
-        max-width: 400px; /* Adjust as needed */
-        height: auto;
+        width: 700px;
+        height: 100px;
+        
     }
 </style>
 {% endblock %}
@@ -58,20 +66,59 @@ Start Content
   <div class="lightBg">
     <div class="container">
       <div class="portfolioContentMain">
-        <div class="pColMain">
-          {% for obj in object_list %}
-          <div class="pCol">
-            <a href="{% url 'portfolio_projects:portfolio' slug=obj.slug %}" >
-              <img src="{{obj.image.url}}" alt="..." class="pImg">
-            </a>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            {% for obj in object_list %}
+            <div class="swiper-slide">
+              <a href="{% url 'portfolio_projects:portfolio' slug=obj.slug %}">
+                <img src="{{ obj.image.url }}" class="pImg" alt="Project Image">
+              </a>
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- End Content -->
+{% endblock %}
+
 <!-- ================================
-End Content
+Start JavaScript blocks
 ================================= -->
-{% endblock%}
+{% block extend_footer %}
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+        direction: 'horizontal',
+        slidesPerView: 1, // Display one slide at a time
+        spaceBetween: 30, // Adjust the space between slides if needed
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    // Access each slide individually
+    swiper.slides.forEach(function (slide, index) {
+        console.log('Slide ' + (index + 1) + ':', slide);
+    });
+});
+
+</script>
+{% endblock %}
+<!-- ================================
+END JavaScript blocks
+================================= -->

@@ -14,7 +14,21 @@ END SEO blocks
 <!-- ================================
 Start CSS blocks
 ================================= -->
-{% block extend_header %}{% endblock %}
+{% block extend_header %}
+<style>
+  /* Styling for the footer on the index page */
+  footer.index-footer {
+      display:none;
+      
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      
+      text-align: center;
+      padding: 5px 0; /* Adjust as needed */
+  }
+</style>
+{% endblock %}
 <!-- ================================
 END CSS blocks
 ================================= -->
@@ -22,7 +36,8 @@ END CSS blocks
 <!-- ================================
 Start script blocks
 ================================= -->
-{% block extend_footer %}{% endblock %}
+{% block extend_footer %}
+{% endblock %}
 <!-- ================================
 END script blocks
 ================================= -->
@@ -263,6 +278,7 @@ Start Content
     </div>
   </div>
 </section>
+
 <!--
 <section>
   <div class="sectionSpaceSm lightBg">
@@ -302,4 +318,25 @@ Start Content
 {% endblock %}
 <!-- ================================
 End Content
+================================= -->
+<!-- ================================
+Start Footer
+================================= -->
+<footer class="index-footer">
+  <div class="footerCol">
+      <div class="container">
+          <ul class="socialCol">
+              <!-- Social media links -->
+              <li><a href="https://github.com/anusree-pillai"><img src="{% static 'images/icons8-github-26.png' %}" alt="GitHub"></a></li>
+              <li><a href="https://www.linkedin.com/in/anu-pillai-2a5645295"><img src="{% static 'images/icons8-linkedin-26.png' %}" alt="LinkedIn"></a></li>
+          </ul>
+          <div class="copyrightCol">
+              <!-- Copyright information with a link to the designer's portfolio or website -->
+              <p>Copyright ©{% now 'Y' %} All rights reserved. Designed by <a href="" target="_blank">Anu</a></p>
+          </div>
+      </div>
+  </div>
+</footer>
+<!-- ================================
+End Footer
 ================================= -->

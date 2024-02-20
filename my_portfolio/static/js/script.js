@@ -47,3 +47,33 @@ var swiper = new Swiper(".certificatesSlider", {
     },
   },
 });
+// Initialize Swiper slider for projects
+var projectSwiper = new Swiper(".projectSlider", {
+  slidesPerView: 1, // Number of slides per view
+  spaceBetween: 20, // Space between slides (adjust as needed)
+  navigation: {
+    nextEl: ".project-swiper-button-next", // Next button selector
+    prevEl: ".project-swiper-button-prev", // Previous button selector
+  },
+  breakpoints: {
+    // Responsive breakpoints for different screen sizes
+    640: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    1024: {
+      slidesPerView: 4,
+    },
+  },
+});
+document.addEventListener('DOMContentLoaded', function () {
+  new Glide('.glide', {
+      type: 'carousel',
+      perView: 1,
+      focusAt: 'center',
+      autoplay: 3000, // Set to 0 for no autoplay
+  }).mount();
+});
+

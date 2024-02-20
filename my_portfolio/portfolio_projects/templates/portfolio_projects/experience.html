@@ -14,6 +14,7 @@ END SEO blocks
 <!-- ================================
 Start CSS blocks
 ================================= -->
+
 {% block extend_header %}
 
 {% endblock %}
@@ -43,16 +44,16 @@ Start Content
       <div class="portfolioContentMain">
        <!-- <div class="row g-3 g-md-4 g-lg-5 portfolioRow">-->
           {% for obj in object_list %}
-          <div class="col-md-6 pColMain">
+        <!-- <div class="col-md-6 pColMain">-->
            <!-- <div class="pCol">-->
               <h2>{{ obj.job_title }}</h2>
-              <p>{{ obj.company }}</p>
+              
               <p style="font-family: cursive;">{{ obj.description }}</p>
-            </div>
-          </div>
+         <!--   </div>-->
+          <!--</div>-->
           {% endfor %}
         <!--</div>-->
-      <!--</div>-->
+      </div>
     </div>
   </div>
 </section>
